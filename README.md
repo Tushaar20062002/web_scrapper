@@ -33,9 +33,9 @@ This project is a **Flask-based web application** that scrapes population data f
 
 ![Bar Chart](images/bar_chart.png)
 
-### 📉 Example: Pie Chart
+### 📉 Example: Line Chart
 
-![Pie Chart](images/pie_chart.png)
+![Pie Chart](images/Line_chart.png)
 
 > 💡 *Add your actual screenshots in the `images/` folder using the above file names.*
 
