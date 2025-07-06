@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .chart-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .table-container {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+        .data {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .data th, .data td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .data th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Interactive Population Dashboard</h1>
+        <form method="POST" id="chartForm">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="chart" class="form-label">Select Chart Type:</label>
+                    <select name="chart" id="chart" class="form-select">
+                        {% for chart in chart_types %}
+                            <option value="{{ chart }}" {% if chart == selected_chart %}selected{% endif %}>{{ chart }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-6 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">Generate Chart</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="chart-container">
+            <h3>{{ selected_chart }}</h3>
+            <img src="data:image/png;base64,{{ chart }}" alt="Chart" class="img-fluid">
+        </div>
+
+        <div class="table-container">
+            <h3>Data Table</h3>
+            {{ table|safe }}
+        </div>
+    </div>
+
+    <script>
+        // Add interactivity to dynamically update the chart without reloading the page
+        document.getElementById('chartForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch('/', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(html => {
+                document.body.innerHTML = html;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
