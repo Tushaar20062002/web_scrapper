@@ -37,32 +37,16 @@ This project is a **Flask-based web application** that scrapes population data f
 
 ![Pie Chart](images/Line_chart.png)
 
-> 💡 *Add your actual screenshots in the `images/` folder using the above file names.*
-
----
-
-## 🏗️ Folder Structure
-
-population-dashboard/
-├── app.py
-├── templates/
-│ └── interactive_dashboard.html
-├── static/
-│ └── style.css (optional)
-├── images/
-│ ├── dashboard_ui.png
-│ ├── bar_chart.png
-│ └── pie_chart.png
-├── README.md
-├── LICENSE
-└── requirements.txt
 
 
 ---
+
+
+
 
 ## 🚀 Getting Started
 
-### 1. Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/population-dashboard.git
