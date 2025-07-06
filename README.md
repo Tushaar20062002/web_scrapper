@@ -27,7 +27,7 @@ This project is a **Flask-based web application** that scrapes population data f
 
 ### 📊 Dashboard UI
 
-![Dashboard UI](images/dashboard_ui.png)
+![Dashboard UI](images/dashbord_ui.png)
 
 ### 📈 Example: Bar Chart
 
